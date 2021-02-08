@@ -175,7 +175,7 @@ static bool ocl_goodFeaturesToTrack( InputArray _image, OutputArray _corners,
     Corner* corner_ptr = tmpCorners.ptr<Corner>() + 1;
     std::sort(corner_ptr, corner_ptr + total);
 
-    std::vector<Point3f> corners;
+    std::vector<Point2f> corners;
     corners.reserve(total);
 
     if (minDistance >= 1)
@@ -236,7 +236,7 @@ static bool ocl_goodFeaturesToTrack( InputArray _image, OutputArray _corners,
             {
                 grid[y_cell*grid_width + x_cell].push_back(Point2f((float)c.x, (float)c.y));
 
-                corners.push_back(Point3f((float)c.x, (float)c.y, (float)c.val));
+                corners.push_back(Point2f((float)c.x, (float)c.y));
                 ++ncorners;
 
                 if( maxCorners > 0 && (int)ncorners == maxCorners )
@@ -250,7 +250,7 @@ static bool ocl_goodFeaturesToTrack( InputArray _image, OutputArray _corners,
         {
             const Corner & c = corner_ptr[i];
 
-            corners.push_back(Point3f((float)c.x, (float)c.y, (float)c.val));
+            corners.push_back(Point2f((float)c.x, (float)c.y));
             ++ncorners;
             if( maxCorners > 0 && (int)ncorners == maxCorners )
                 break;
