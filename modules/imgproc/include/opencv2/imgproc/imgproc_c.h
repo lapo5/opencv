@@ -902,7 +902,8 @@ CVAPI(void)  cvGoodFeaturesToTrack( const CvArr* image, CvArr* eig_image,
                                     const CvArr* mask CV_DEFAULT(NULL),
                                     int block_size CV_DEFAULT(3),
                                     int use_harris CV_DEFAULT(0),
-                                    double k CV_DEFAULT(0.04) );
+                                    double k CV_DEFAULT(0.04),
+                                    float* _cornersValues CV_DEFAULT(NULL));
 
 /** @brief Finds lines on binary image using one of several methods.
 
